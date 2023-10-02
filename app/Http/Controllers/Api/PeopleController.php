@@ -47,4 +47,9 @@ class PeopleController extends Controller
             ->toResponse($request)
             ->setStatusCode(200);
     }
+
+    public function count(): int
+    {
+        return People::all()->count();
+    }
 }
