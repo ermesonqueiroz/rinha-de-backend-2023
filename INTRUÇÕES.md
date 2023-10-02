@@ -2,7 +2,7 @@
 
 ## Endpoints
 
-- [ ] `POST /pessoas`
-- [ ] `GET /pessoas/:id`
-- [ ] `GET /pessoas?t=[:termo da busca]`
-- [ ] `GET /contagem-pessoas`
+- [x] `POST /pessoas`
+- [x] `GET /pessoas/:id`
+- [x] `GET /pessoas?t=[:termo da busca]`
+- [x] `GET /contagem-pessoas`
