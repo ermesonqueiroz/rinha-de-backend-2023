@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\PessoaController;
+use App\Http\Controllers\Api\PeopleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('pessoas')->group(function () {
-    Route::post('/', [PessoaController::class, 'store']);
-    Route::get('/{id}', [PessoaController::class, 'details']);
+    Route::post('/', [PeopleController::class, 'store']);
+    Route::get('/{id}', [PeopleController::class, 'details']);
 });

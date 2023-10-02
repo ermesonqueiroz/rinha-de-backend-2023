@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 
-class StorePessoaRequest extends FormRequest
+class StorePeopleRequest extends FormRequest
 {
     protected $stopOnFirstFailure = true;
 
     public function rules(): array
     {
         return [
-            'apelido' => ['required', 'max:32', 'unique:pessoas', 'string'],
+            'apelido' => ['required', 'max:32', 'unique:peoples', 'string'],
             'nome' => ['required', 'max:100', 'string'],
             'nascimento' => ['required', 'date', 'date_format:Y-m-d'],
             'stack' => ['nullable', 'array'],

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 use function Pest\Laravel\get;
 
-class Pessoa extends Model
+class People extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
 

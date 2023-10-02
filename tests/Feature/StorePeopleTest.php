@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Pessoa;
+use App\Models\People;
 use Carbon\Carbon;
 use function Pest\Laravel\postJson;
 
@@ -14,10 +14,10 @@ describe('Store people endpoint', function () {
         ];
 
         $response = postJson('/api/pessoas', $data);
-        $pessoa = Pessoa::where('apelido', $data['apelido'])->first();
+        $people = People::where('apelido', $data['apelido'])->first();
 
         $response->assertCreated(201);
-        $response->assertLocation("/api/pessoas/$pessoa->id");
+        $response->assertLocation("/api/pessoas/$people->id");
     });
 
     it('should not be able to create a new people with duplicated a.k.a', function () {
@@ -28,7 +28,7 @@ describe('Store people endpoint', function () {
             'stack' => ['PHP', 'JavaScript', 'Ruby', 'C++', 'Java']
         ];
 
-        Pessoa::create([
+        People::create([
             'apelido' => $data['apelido'],
             'nome' => 'Marcos Aurélio',
             'nascimento' => Carbon::now()->format('Y-m-d'),
