@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
-use function Pest\Laravel\get;
 
 class People extends Model
 {
-    use HasFactory, HasUuids, SoftDeletes;
+    use HasUuids, SoftDeletes;
+
+    protected $table = 'peoples';
 
     protected $fillable = [
         'apelido',

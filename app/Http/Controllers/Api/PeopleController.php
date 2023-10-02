@@ -31,8 +31,20 @@ class PeopleController extends Controller
             ->setStatusCode(Response::HTTP_OK);
     }
 
-    public function search(Request $request, string $t): JsonResponse
+    public function search(Request $request): JsonResponse
     {
+        $term = $request->query('t');
+        abort_if(empty($term), Response::HTTP_BAD_REQUEST, 'O termo de pesquisa é obrigatório');
 
+        $peoples = People::query()
+            ->where('apelido', 'LIKE', "%$term%")
+            ->orWhere('nome', 'LIKE', "%$term%")
+            ->orWhere('stack', 'LIKE', "%$term%")
+            ->limit(50)
+            ->get();
+
+        return PeopleResource::collection($peoples)
+            ->toResponse($request)
+            ->setStatusCode(200);
     }
 }

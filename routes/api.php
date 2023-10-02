@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('pessoas')->group(function () {
     Route::post('/', [PeopleController::class, 'store']);
     Route::get('/{id}', [PeopleController::class, 'details']);
+    Route::get('/', [PeopleController::class, 'search']);
 });
